@@ -1,0 +1,303 @@
+\documentclass{beamer}
+
+
+
+%\usepackage{beamerthemesplit}
+\usetheme{Boadilla}
+%\usetheme{default}
+%\useinnertheme{rounded}
+
+%\useoutertheme{shadow}
+\usecolortheme{rose}
+%\usefonttheme{serif}
+\setbeamertemplate{navigation symbols}{}
+\usetheme{Madrid}
+
+\usepackage{amssymb,amsmath,amscd,amsfonts,amsthm,dsfont,color,graphicx}
+\usepackage{amscd}
+%\usepackage[numbers]{natbib}
+% \usepackage[french]{babel}
+%\usepackage[active]{srcltx}
+
+
+\def\qd{\,{\mathchar'26\mkern-12mu d}}
+
+% \date[]{}
+
+ \newcommand\makebeamertitle{\frame{\maketitle}}%
+
+ \AtBeginDocument{
+   \let\origtableofcontents=\tableofcontents
+   \def\tableofcontents{\@ifnextchar[{\origtableofcontents}{\gobbletableofcontents}}
+   \def\gobbletableofcontents#1{\origtableofcontents}
+ }
+\numberwithin{equation}{section}
+  \theoremstyle{plain}
+  \newtheorem*{thm*}{\protect\theoremname}
+  \theoremstyle{plain}
+  \newtheorem*{cor*}{\protect\corollaryname}
+ \theoremstyle{definition}
+ \newtheorem*{defn*}{\protect\definitionname}
+ \theoremstyle{plain}
+\newtheorem*{lem*}{\protect\lemmaname}
+  \theoremstyle{plain}
+  \newtheorem*{rem*}{\protect\remarkname}
+   \theoremstyle{definition}
+ \newtheorem*{prop*}{\protect\propositionname}
+
+\usetheme{Madrid}
+
+\makeatother
+
+  \providecommand{\corollaryname}{Corollary}
+  \providecommand{\definitionname}{Definitioninition}
+  \providecommand{\theoremname}{Theorem}
+   \providecommand{\lemmaname}{Lemma}
+   \providecommand{\remarkname}{Remark}
+   \providecommand{\propositionname}{Proposition}
+   
+   
+\newcommand{\Rl}{\mathbb{R}}
+\newcommand{\Cplx}{\mathbb{C}}
+\newcommand{\Itgr}{\mathbb{Z}}
+\newcommand{\Ntrl}{\mathbb{N}}
+\newcommand{\Circ}{\mathbb{T}}
+\newcommand{\Sb}{\mathbb{S}}
+\newcommand{\Disc}{\mathbb{D}}
+\newcommand{\Aff}{\mathbb{A}}
+
+% The Caligraphic alphabet
+\newcommand{\Ac}{\mathcal{A}}
+\newcommand{\Bc}{\mathcal{B}}
+\newcommand{\Cc}{\mathcal{C}}
+\newcommand{\Dc}{\mathcal{D}}
+\newcommand{\Ec}{\mathcal{E}}
+\newcommand{\Fc}{\mathcal{F}}
+\newcommand{\Gc}{\mathcal{G}}
+\newcommand{\Hc}{\mathcal{H}}
+\newcommand{\Ic}{\mathcal{I}}
+\newcommand{\Jc}{\mathcal{J}}
+\newcommand{\Kc}{\mathcal{K}}
+\newcommand{\Lc}{\mathcal{L}}
+\newcommand{\Mv}{\mathcal{M}}
+\newcommand{\Nv}{\mathcal{N}}
+\newcommand{\Oc}{\mathcal{O}}
+\newcommand{\Pc}{\mathcal{P}}
+\newcommand{\Qc}{\mathcal{Q}}
+\newcommand{\Rc}{\mathcal{R}}
+\newcommand{\Sc}{\mathcal{S}}
+\newcommand{\Tc}{\mathcal{T}}
+\newcommand{\Uc}{\mathcal{U}}
+\newcommand{\Vc}{\mathcal{V}}
+\newcommand{\Wc}{\mathcal{W}}
+\newcommand{\Xc}{\mathcal{X}}
+\newcommand{\Yc}{\mathcal{Y}}
+\newcommand{\Zc}{\mathcal{Z}}
+
+
+\newcommand{\Sp}{\mathrm{Sp}}
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\Op}{\mathrm{Op}}
+\newcommand{\sym}{\mathrm{sym}}
+\newcommand{\Vol}{\mathrm{Vol}}
+\newcommand{\Tr}{\mathrm{Tr}}
+\newcommand{\dist}{\mathrm{dist}}
+\newcommand{\sgn}{\operatorname{sgn}}
+\newcommand{\diag}{\mathrm{diag}}
+\newcommand{\id}{\mathrm{id}}
+\newcommand{\Poly}{\mathrm{Poly}}
+
+\newcommand{\spec}{\mathrm{Spec}}
+\newcommand{\abs}{\mathrm{abs}}
+
+\newcommand{\CV}{\mathrm{CV}}
+\newcommand{\PCV}{\mathrm{PCV}}
+
+
+% Used for highlighting. To remove all highlighting just make the command blank
+\newcommand{\hl}{\color{red}}
+
+
+
+\newcommand{\dom}{\mathrm{dom}}
+\newcommand{\Bl}{\mathbb{B}^4}
+\newcommand{\supp}{\mathrm{supp}}
+\newcommand{\BS}{\mathfrak{BS}}
+\newcommand{\dyad}{\mathrm{dyad}}
+\newcommand{\Qs}{\mathscr{Q}}
+\newcommand{\Av}{\mathrm{Av}}
+\newcommand{\loc}{\mathrm{loc}}
+% DOI transformer
+\newcommand{\Ti}{\mathcal{T}}
+\newcommand{\sa}{\mathrm{sa}}
+
+
+\newcommand{\Str}{\operatorname{Str}}
+   
+   
+\newcommand{\gf}{\mathfrak{g}}
+
+\date{\today}
+   
+\begin{document}
+
+\title[Spectral asymptotics and nilpotent Lie groups]{Spectral asymptotics and scattering theory in the nilpotent Lie group setting}
+
+
+\author[E. McDonald]{Edward McDonald\\
+(based on joint work with  Z.~Fan, J.~Li, F.~Sukochev and D.~Zanin)}
+
+
+\institute[]{Penn State University}
+
+\makebeamertitle
+
+\begin{frame}{Introduction}
+    This talk is based on a series of preprints by myself with Zhijie Fan (Wuhan), Ji Li (Macquarie), Fedor Sukochev (UNSW) and Dmitriy Zanin (UNSW). 
+    
+    The first two papers are available:
+    \begin{enumerate}[{\rm (a)}]
+      \item{} Spectral estimates and asymptotics for stratified Lie groups \texttt{arXiv:2201.12349} (with Sukochev and Zanin)
+      \item{} Endpoint weak Schatten class estimates and trace formula for commutators of Riesz transforms with multipliers on Heisenberg groups \texttt{arXiv:2201.12350} (with Fan, Li, Sukochev and Zanin) 
+    \end{enumerate}
+    There will also be other papers (currently in preparation).
+\end{frame}
+
+\begin{frame}{Plan for this talk}
+    \begin{enumerate}
+        \item{} Some elementary background on scattering theory (why do we care?)
+        \item{} Stratified lie groups and recent developments
+        \item{} The future(?)
+    \end{enumerate}
+    I will discuss a program (mostly unfinished) to do scattering theory (in the style of Birman-Kato) and related things for maximally hypoelliptic operators (in the style of of Helffer-Nourigat, Androulidakis-Mohsen-Yuncken).
+\end{frame}
+
+\begin{frame}{Very elementary scattering theory}
+  If $Q$ is an elliptic and symmetric differential operator
+  \[
+     Q:C^{\infty}(X,E)\to C^\infty(X,E)
+  \]
+  where $X$ is compact and Riemannian, and $E$ is some Hermitian vector bundle, then $Q$ is self-adjoint and has a discrete spectral decomposition
+  \[
+     Q = \sum_{n=0}^\infty \lambda(n,Q)P_n
+  \]
+  where $P_n$ is a finite rank $L_2(X,E)$-orthogonal projection, and $\{\lambda(n,Q)\}_{n=0}^\infty$ enumerates the spectrum in increasing order of absolute value. 
+    
+  \pause
+  
+  If $X$ is not compact, this is of course not true.
+\end{frame}
+
+\begin{frame}{Very elementary scattering theory}
+  Suppose that $X$ is not compact (later, we will simply take $X = \Rl^d$). If we assume that the geometry of $X$ and $E$ are not so bad and that the coefficients of $Q$ are uniformly bounded in the correct sense, then $Q$ is still self-adjoint but its spectrum is complicated.
+  
+  \pause
+  In this case scattering theory can provide a more useful description. 
+\end{frame}
+
+\begin{frame}{Very elementary scattering theory}
+  A conventional situation is that we have a differential operator (on $\Rl^d$),
+  \[
+      D_1 = \sum_{|\alpha|\leq m} a_{\alpha}(x)\partial^{\alpha}
+  \]
+  with smooth coefficients $\{a_{\alpha}\}$ that are constant outside of a compact set, say $a_{\alpha}(x) = c_{\alpha}.$ If we define
+  \[
+      D_0 = \sum_{|\alpha|\leq m} c_{\alpha}\partial^{\alpha}
+  \]
+  The spectral theory of $D_0$ is easy to understand using the Fourier transform. We expect that $D_1$
+  
+  
+  Scattering theory is about the solutions to the equation
+  \[
+    \frac{\partial u}{\partial t} = iD_1u.
+  \]
+  Or $u(t) = \exp(itD_1)u(0).$ We want to know when
+  there exists $u_+$ such that
+  \[
+      \lim_{t\to\infty} \|\exp(itD_1)u(0)-\exp(itD_0)u_+\| = 0.
+  \] 
+  Or, alternatively, when there exists a strong limit
+  \[
+    W_+(D_1,D_0) := {\mathrm{s}-}\lim_{t\to\infty} e^{-itD_0}e^{itD_1}.
+  \]
+  (actually, we are interested in a slight modification of this).
+\end{frame}
+
+\begin{frame}{Stratified Lie groups}
+  Let $\gf$ be a Lie algebra which admits a direct sum decomposition
+  \[
+    \gf = \bigoplus_{k=1}^\infty \gf_k
+  \]
+  where $[\gf_k,\gf_l] \subseteq \gf_{k+l}$ and $\gf_1$ generates $\gf.$ 
+  This is called a stratified Lie algebra. Exponentiating $\gf,$
+  we get a simply connected nilpotent Lie group
+  \[
+    G = \exp(\gf).
+  \]
+  This is a homeomorphism, and the Lebesgue measure of $\gf$ pushes forward to the Haar measure of $G.$
+  Suppose that $\gf_1$ has a basis $\{X_1,\ldots,X_m\}.$, and $G$ is essentially a Euclidean space $\Rl^d$ equipped with a family of vector fields
+  \[
+    X_1,\ldots,X_m
+  \]
+  with polynomial coefficients satisfying the H\"ormander condition at every point.
+\end{frame}
+
+\begin{frame}{Ellipticity on stratified Lie groups}
+  The stratification of $\gf$ defines a grading on the algebra of invariant differential operators, $\Uc(\gf),$ on $G.$
+  Say that an operator $P\in \Uc(\gf)$ has order $k$ if the highest degree term in $P$ is homogeneous of degree $k.$
+
+  \begin{theorem}[Helffer-Nourigat, Rockland]
+    Let $P \in \Uc(\gf)$ have degree $k.$ If for every $\pi \in \widehat{G}_u$ (the unitary dual of $G$), $\pi(P)$
+    is injective on $H^{\infty}_\pi$ (the smooth vectors), then for every $Q$ of degree less than or equal to $k$ we have
+    \[
+      \|Qu\|_{L_2(G)} \lesssim \|Pu\|_{L_2(G)}+\|u\|_{L_2(G)},\quad u\in L_2(G).
+    \]
+    In particular, $P$ is hypoelliptic.
+  \end{theorem}
+\end{frame}
+
+\begin{frame}{Ellipticity on stratified Lie groups}
+\end{frame}
+
+
+\begin{frame}{Birman's theorem}
+  Suppose that $A_1,A_0$ are self-adjoint operators on a Hilbert space $H.$ If for any bounded interval $I\subset \Rl$ we have
+  \[
+    \chi_I(A_1)(A_1-A_0)\chi_{I}(A_0) \in \Lc_1(H)
+  \]
+  then the wave operators $W_{\pm}(A_1,A_0)$ exist and are complete.
+\end{frame}
+
+\begin{frame}{Birman's theorem for stratified Lie groups}
+  Suppose that 
+  \[
+      D_1 = \sum_{|\alpha|_h\leq m} a_{\alpha}(x)X^{\alpha}
+  \]
+  where each $a_{\alpha}$ is a smooth function on $G$ equal to a constant (say, $c_{\alpha}$) outside a compact set.
+  Then we expect that
+  \[
+      D_0 = \sum_{|\alpha|_h\leq m} c_{\alpha}X^{\alpha}
+  \]
+  is a good model for $D_1$ asymptotically, since $D_1-D_0$ is a differential operator with compactly supported coefficients.  
+\end{frame}
+
+\begin{frame}{A first result}
+  \begin{theorem}
+    Let $f \in C^\infty_c(G),$ and let $Q\in \Uc(\gf)$ be a Rockland operator. Then for any bounded interval $I\subset \Rl,$ we have
+    \[
+      M_f\chi_{I}(Q) \in \Lc_1(L_2(G)).
+    \]
+  \end{theorem}
+
+\end{frame}
+
+
+\begin{frame}
+\structure{\begin{center}
+{\Huge{}Thank you for listening!}
+\par\end{center}}\end{frame}
+
+
+
+\end{document}
+
