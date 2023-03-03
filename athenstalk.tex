@@ -174,9 +174,9 @@
 \begin{frame}{Executive summary}
   We have some new results on the spectral theory of operators of the form
   \[
-    M_f Q^{-1}:L_2(G)\to L_2(G)
+    M_f D^{-1}:L_2(G)\to L_2(G)
   \]
-  where $G$ is a stratified Lie group, $M_f$ is the operator of pointwise multiplication by a function $f$ on $G$ and $Q$ is a maximally hypoelliptic differential operator on $G.$
+  where $G$ is a stratified Lie group, $M_f$ is the operator of pointwise multiplication by a function $f$ on $G$ and $D$ is a positive maximally hypoelliptic differential operator on $G.$
 
   Specifically, we now have a much better understanding of the singular values of these operators.
   \pause
@@ -184,6 +184,143 @@
   These are interesting on their own, but I will discuss a program (mostly unfinished) to do scattering theory (in the style of Birman-Kato) for maximally hypoelliptic operators (in the style of of Helffer-Nourigat, Androulidakis-Mohsen-Yuncken).
 \end{frame}
 
+\begin{frame}{Why do we want to know?}
+Singular value estimates for operators like $M_fD^{-1}$ have several applications. For example:
+\begin{itemize}
+  \item{} Bound state problems: estimate the number of eigenvalues of $D+M_f.$
+  \item{} Scattering theory: compare the effect of $M_f$ on the evolution of $\exp(it(D+M_f)),$
+  \item{} Spectral theory: determine the Weyl asymptotics of general maximally hypoelliptic differential operators.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Very elementary scattering theory}
+  If $Q$ is an elliptic and symmetric differential operator
+  \[
+     Q:C^{\infty}(X,E)\to C^\infty(X,E)
+  \]
+  where $X$ is compact and Riemannian, and $E$ is some Hermitian vector bundle, then $Q$ is self-adjoint and has a discrete spectral decomposition
+  \[
+     Q = \sum_{n=0}^\infty \lambda(n,Q)P_n
+  \]
+  where $P_n$ is a finite rank $L_2(X,E)$-orthogonal projection, and $\{\lambda(n,Q)\}_{n=0}^\infty$ enumerates the spectrum in increasing order of absolute value.
+
+  \pause
+
+  If $X$ is not compact, this is of course not true.
+\end{frame}
+
+\begin{frame}{Very elementary scattering theory}
+  Suppose that $X$ is not compact (later, we will simply take $X = \Rl^d$). If we assume that the geometry of $X$ and $E$ are not so bad and that the coefficients of $Q$ are uniformly bounded in the correct sense, then $Q$ is still self-adjoint but its spectrum is complicated.
+
+  \pause
+  In this case scattering theory can provide a more useful description.
+\end{frame}
+
+\begin{frame}{Very elementary scattering theory}
+  A conventional situation is that we have a symmetric differential operator (on $\Rl^d$),
+  \[
+      D_1 = \sum_{|\alpha|\leq m} a_{\alpha}(x)\partial^{\alpha}
+  \]
+  with smooth coefficients $\{a_{\alpha}\}$ that are constant outside of a compact set, say $a_{\alpha}(x) = c_{\alpha}.$ If we define
+  \[
+      D_0 = \sum_{|\alpha|\leq m} c_{\alpha}\partial^{\alpha}
+  \]
+  The spectral theory of $D_0$ is easy to understand using the Fourier transform. We expect that $D_1$ ``looks similar"
+  to $D_0$ in some sense. Ideally, $D_1$ is relatively compact with respect to $D_0.$
+
+  Another question we might want to ask about $D_1$: does it have a discrete spectrum? If so, where is it?
+\end{frame}
+
+\begin{frame}{Uses of scattering theory}
+The Birman-Kato theory is well-known in geometry and topology.
+\begin{itemize}
+\item{} Relative index theorems: Suppose that $D_1$ and $D_0$ are odd self-adjoint operators on a $\Itgr/2\Itgr$-graded Hilbert space $H.$ The relative index of $D_1$ and $D_0$ is
+\[
+\mathrm{ind}(D_1,D_0) = \mathrm{Str}(e^{-tD_1^2}-e^{-tD_0^2})
+\]
+(provided it exists). The relative index is the differences of the indices of $D_1$ and $D_0,$ plus an extra term coming from the continuous spectrum. See Eichhorn \emph{Relative Index Theory} (2008).
+\item{} Witten index: It is concievable that one could have a non-Fredholm operator $D$ such that
+\[
+\mathrm{wind}(D) := \lim_{t\to\infty}\Tr(e^{-tD^*D}-e^{-tDD^*})
+\]
+exists. This is called the Witten index, and can be expressed in terms of the scattering data of the pair $(|D|,|D^*|).$ See ALCS..(?)
+\item{} Richard's topological version of Levinson's theorem.
+\end{itemize}
+Related is the Lax-Phillips scattering theory, with its well-known applications (see Melrose, Lax-Phillips).
+\end{frame}
+
+
+\begin{frame}{Very elementary scattering theory}
+  Scattering theory is about the solutions to the equation
+  \[
+    \frac{\partial u}{\partial t} = iD_1u.
+  \]
+  Or $u(t) = \exp(itD_1)u(0).$ We want to know when
+  there exists $u_+$ such that
+  \[
+      \lim_{t\to\infty} \|\exp(itD_1)u(0)-\exp(itD_0)u_+\| = 0.
+  \]
+  Or, alternatively, when there exists a strong limit
+  \[
+    W_+(D_1,D_0) := {\mathrm{s}-}\lim_{t\to\infty} e^{-itD_0}e^{itD_1}.
+  \]
+  (actually, we are interested in a slight modification of this).
+\end{frame}
+
+\begin{frame}{Very elementary scattering theory}
+  With a little more effort, we can compare the solutions of the wave equations
+  \[
+    \frac{\partial^2 u}{\partial t^2} = D_1u,\; \frac{\partial^2 u}{\partial t^2} = D_0u.
+  \]
+  (acoustical scattering; see Reed-Simon III)
+\end{frame}
+
+
+
+
+\begin{frame}{Very elementary scattering theory}
+  Let $D_0,D_1$ be self-adjoint operators on some Hilbert space $H,$ and let $P_{ac}(D_1)$ be the projection onto the absolutely continuous subspace of $D_1.$
+
+  Define
+  \[
+    W_{\pm}(D_0,D_1) := {\mathrm{s}-}\lim_{t\to\pm \infty} e^{-itD_0}e^{itD_1}P_{ac}(D_1).
+  \]
+  These are called the wave operators. We say that the wave operators (if they exist) are \emph{complete}
+  if
+  \[
+      \mathrm{ran}(W_{\pm}(D_0,D_1)) = P_{ac}(D_0).
+  \]
+\end{frame}
+
+
+\begin{frame}{Birman's theorem}
+  Suppose that $A_1,A_0$ are self-adjoint operators on a Hilbert space $H.$ If for any bounded interval $I\subset \Rl$ we have
+  \[
+    \chi_I(A_1)(A_1-A_0)\chi_{I}(A_0) \in \Lc_1(H)
+  \]
+  then the wave operators $W_{\pm}(A_1,A_0)$ exist and are complete.\\\pause
+
+  {\color{red} There are some additional technical assumptions on $A_1,A_0$ which I will not address here.}\\ \pause
+
+  It suffices, for example, to have
+  \[
+    (A_1-A_0)(1+A_0^2)^{-N} \in \Lc_1(H)
+  \]
+  for sufficiently large $N.$
+\end{frame}
+
+\begin{frame}{Using Birman's theorem}
+  Consider the pair
+  \[
+      A_1 =c(x)\Delta, A_0 = \Delta = \sum_{j=1}^d \partial_{x_j}^2
+  \]
+  on $\Rl^d,$ where $c$ is a smooth positive function equal to $1$ outside a compact set. Then
+  \[
+    (A_1-A_0)(1-\Delta)^{-N} =(c(x)-1)\Delta (1-\Delta)^{-N}
+  \]
+  This belongs to $\Lc_1$ for sufficiently large $N,$ thanks to some old results of Birman-Solomyak.
+\end{frame}
 
 \begin{frame}{Stratified Lie groups}
   Let $\gf$ be a Lie algebra which admits a direct sum decomposition
@@ -191,8 +328,17 @@
     \gf = \bigoplus_{n=1}^\infty \gf_n
   \]
   where $[\gf_k,\gf_n] \subseteq \gf_{k+n}$ and $\gf_1$ generates $\gf.$
-  This is called a stratified Lie algebra. Exponentiating $\gf,$
-  we get a simply connected nilpotent Lie group
+  This is called a stratified Lie algebra.
+
+  The number
+  \[
+    Q := \sum_{n=1}^\infty n\mathrm{dim}(\gf_n)
+  \]
+  is called the homogeneous dimension of $\gf.$\pause
+\end{frame}
+
+\begin{frame}{Stratified Lie groups}
+  Exponentiating $\gf,$ we get a simply connected nilpotent Lie group
   \[
     G = \exp(\gf).
   \]
@@ -202,11 +348,6 @@
     X_1,\ldots,X_m
   \]
   with polynomial coefficients satisfying the H\"ormander condition at every point.
-  The number
-  \[
-    Q := \sum_{n=1}^\infty n\mathrm{dim}(\gf_n)
-  \]
-  is called the homogeneous dimension of $\gf.$
 \end{frame}
 
 \begin{frame}{Ellipticity on stratified Lie groups}
@@ -242,13 +383,15 @@ Given a function $f$ on $G,$ denote by $M_f$ the (possibly unbounded) operator o
 \]
 and their trace ideal properties.\\
 \pause
-Why is this?
+Why is this?\\
+\pause
+Among other things, so we can use Birman's theorem to study the scattering of differential operators on $G.$
 \end{frame}
 
 \begin{frame}{A first result}
-One of not entirely trivial results we obtained is the following.
+One not-entirely-trivial results we obtained is the following.
 \begin{theorem}[M.-Sukochev-Zanin]
-  Let $r>Q$ (recall that $Q$ is the homogeneous dimension) and let $q>2.$ Given $f \in \ell_1(L_q)(G)$ (a function space on $G$), the operator
+  Let $r>Q$ (recall that $Q$ is the homogeneous dimension) and let $q>2.$ Given $f \in \ell_1(L_q)(G)$ {\color{red}(a function space on $G$)}, the operator
   \[
 M_f(1-\Delta)^{-\frac{r}{2}}:L_2(G)\to L_2(G)
   \]
@@ -258,7 +401,6 @@ This is a stratified version of an old result of Birman and Solomyak.
 \end{frame}
 
 \begin{frame}{Some results}
-Right now, what we have is
 \begin{theorem}\label{main_nontrivial_cwikel_theorem}
 Let $G$ be a stratified Lie group with stratification $\gf = \bigoplus_{n=1}^\infty \gf_n,$ homogeneous dimension $d_{\hom} = \sum_{n=1}^\infty n\cdot \mathrm{dim}(\gf_n)$
 and a fixed sub-Laplacian $\Delta = \sum_{j=1}^m X_j^2,$ where $\{X_j\}_{j=1}^m$ is a basis for $\gf_1.$
@@ -303,106 +445,6 @@ $$\|M_f(1-\Delta)^{-\frac{r}{2}}\|_p\leq c_{p,q,r}\|f\|_{\ell_p(L_q)(G)}.$$
 \end{frame}
 
 
-\begin{frame}{Very elementary scattering theory}
-  If $Q$ is an elliptic and symmetric differential operator
-  \[
-     Q:C^{\infty}(X,E)\to C^\infty(X,E)
-  \]
-  where $X$ is compact and Riemannian, and $E$ is some Hermitian vector bundle, then $Q$ is self-adjoint and has a discrete spectral decomposition
-  \[
-     Q = \sum_{n=0}^\infty \lambda(n,Q)P_n
-  \]
-  where $P_n$ is a finite rank $L_2(X,E)$-orthogonal projection, and $\{\lambda(n,Q)\}_{n=0}^\infty$ enumerates the spectrum in increasing order of absolute value.
-
-  \pause
-
-  If $X$ is not compact, this is of course not true.
-\end{frame}
-
-\begin{frame}{Very elementary scattering theory}
-  Suppose that $X$ is not compact (later, we will simply take $X = \Rl^d$). If we assume that the geometry of $X$ and $E$ are not so bad and that the coefficients of $Q$ are uniformly bounded in the correct sense, then $Q$ is still self-adjoint but its spectrum is complicated.
-
-  \pause
-  In this case scattering theory can provide a more useful description.
-\end{frame}
-
-\begin{frame}{Very elementary scattering theory}
-  A conventional situation is that we have a symmetric differential operator (on $\Rl^d$),
-  \[
-      D_1 = \sum_{|\alpha|\leq m} a_{\alpha}(x)\partial^{\alpha}
-  \]
-  with smooth coefficients $\{a_{\alpha}\}$ that are constant outside of a compact set, say $a_{\alpha}(x) = c_{\alpha}.$ If we define
-  \[
-      D_0 = \sum_{|\alpha|\leq m} c_{\alpha}\partial^{\alpha}
-  \]
-  The spectral theory of $D_0$ is easy to understand using the Fourier transform. We expect that $D_1$ ``looks similar"
-  to $D_0$ in some sense. Ideally, $D_1$ is relatively compact with respect to $D_0.$
-\end{frame}
-
-\begin{frame}{Very elementary scattering theory}
-  Another question we might want to ask about $D_1$: does it have a discrete spectrum? If so, where is it?
-\end{frame}
-
-\begin{frame}{Very elementary scattering theory}
-  Scattering theory is about the solutions to the equation
-  \[
-    \frac{\partial u}{\partial t} = iD_1u.
-  \]
-  Or $u(t) = \exp(itD_1)u(0).$ We want to know when
-  there exists $u_+$ such that
-  \[
-      \lim_{t\to\infty} \|\exp(itD_1)u(0)-\exp(itD_0)u_+\| = 0.
-  \]
-  Or, alternatively, when there exists a strong limit
-  \[
-    W_+(D_1,D_0) := {\mathrm{s}-}\lim_{t\to\infty} e^{-itD_0}e^{itD_1}.
-  \]
-  (actually, we are interested in a slight modification of this).
-\end{frame}
-
-
-\begin{frame}{Very elementary scattering theory}
-  Let $D_0,D_1$ be self-adjoint operators on some Hilbert space $H,$ and let $P_{ac}(D_1)$ be the projection onto the absolutely continuous subspace of $D_1.$
-
-  Define
-  \[
-    W_{\pm}(D_0,D_1) := {\mathrm{s}-}\lim_{t\to\pm \infty} e^{-itD_0}e^{itD_1}P_{ac}(D_1).
-  \]
-  These are called the wave operators. We say that the wave operators (if they exist) are \emph{complete}
-  if
-  \[
-      \mathrm{ran}(W_{\pm}(D_0,D_1) = P_{ac}(D_0).
-  \]
-\end{frame}
-
-\begin{frame}{Uses of scattering theory}
-We have various uses for the Birman-Kato theory
-\begin{itemize}
-\item{} Relative index theorems: Suppose that $D_1$ and $D_0$ are odd self-adjoint operators on a $\Itgr/2\Itgr$-graded Hilbert space $H.$ The relative index of $D_1$ and $D_0$ is
-\[
-\mathrm{ind}(D_1,D_0) = \mathrm{Str}(e^{-tD_1^2}-e^{-tD_0^2})
-\]
-(provided it exists). The relative index is the differences of the indices of $D_1$ and $D_0,$ plus an extra term coming from the continuous spectrum.
-\item{} Witten index: It is concievable that one could have a non-Fredholm operator $D$ such that
-\[
-\mathrm{wind}(D) := \lim_{t\to\infty}\Tr(e^{-tD^*D}-e^{-tDD^*})
-\]
-exists. This is called the Witten index, and can be expressed in terms of the scattering data of the pair $(|D|,|D^*|).$
-\item{}Richard's topological version of Levinson's theorem.
-\end{itemize}
-Related is the Lax-Phillips scattering theory, with its well-known applications in geometry and topology (see Melrose, Lax-Phillips).
-\end{frame}
-
-
-
-
-\begin{frame}{Birman's theorem}
-  Suppose that $A_1,A_0$ are self-adjoint operators on a Hilbert space $H.$ If for any bounded interval $I\subset \Rl$ we have
-  \[
-    \chi_I(A_1)(A_1-A_0)\chi_{I}(A_0) \in \Lc_1(H)
-  \]
-  then the wave operators $W_{\pm}(A_1,A_0)$ exist and are complete.
-\end{frame}
 
 \begin{frame}{Birman's theorem for stratified Lie groups}
   Suppose that
@@ -437,8 +479,8 @@ Here, the constant $c_G>0$ depends on the stratification and also on the particu
 \end{frame}
 
 
-\begin{frame}[Semiclassical corollary]
-\begin{corollary}\label{semi-classical corollary}
+\begin{frame}{Semiclassical corollary}
+\begin{corollary}
     Let $G\neq\mathbb{H}^1$ be a stratified Lie group with stratification $\gf = \bigoplus_{n=1}^\infty \gf_n,$ homogeneous dimension $d_{\hom} = \sum_{n=1}^\infty n\cdot \mathrm{dim}(\gf_n)$
     and a fixed sub-Laplacian $\Delta = \sum_{j=1}^m X_j^2,$ where $\{X_j\}_{j=1}^m$ is a basis for $\gf_1.$
 
@@ -472,6 +514,11 @@ Here, the constant $c_G>0$ depends on the stratification and also on the particu
   \end{theorem}
   We can make similar assertions about pairs of the form $(D_1,D_0),$ where $D_1$ and $D_0$ are maximally hypoelliptic differential operators whose coefficients are asymptotically equal.
 \end{frame}
+
+\begin{frame}{The future}
+These estimates are suboptimal for a number of reasons, one of them being that we state the results for functions on $G$ rather than a general Heisenberg manifold (or an even more general filtered manifold). This is probably not a significant restriction.
+\end{frame}
+
 
 
 \begin{frame}

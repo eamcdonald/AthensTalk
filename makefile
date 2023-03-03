@@ -9,3 +9,6 @@ $(NAME).pdf: $(NAME).tex
 	
 clean: 
 	rm -f *.log *.nav *.out *.snm *.toc *.aux
+
+reset: clean
+	rm $(NAME).pdf
