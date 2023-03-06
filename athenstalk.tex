@@ -165,14 +165,15 @@
 
 \begin{frame}{Plan for this talk}
     \begin{enumerate}
-        \item{} Some elementary background on scattering theory (why do we care?)
+        \item{} Some elementary background on scattering theory
         \item{} Stratified lie groups and recent developments
-        \item{} The future(?)
+        \item{} Singular values, Cwikel's estimates and Birman's theorem.
+        \item{} Some new results
     \end{enumerate}
 \end{frame}
 
-\begin{frame}{Executive summary}
-  We have some technical results on the spectra of operators of the form
+\begin{frame}{Summary for the minister}
+  In our preprints we have some technical results on the spectra of operators of the form
   \[
     M_f D^{-1}:L_2(G)\to L_2(G)
   \]
@@ -181,10 +182,10 @@
   Specifically, we now have a much better understanding of the singular values of these operators.
   \pause
 
-  These results are interesting on their own, but I will discuss a program (mostly unfinished) to do scattering theory (in the style of Birman-Kato) for maximally hypoelliptic operators (in the style of of Helffer-Nourigat, Androulidakis-Mohsen-Yuncken).
+  These results are interesting on their own, but I will discuss a program (mostly unrealized) to do scattering theory (in the style of Birman-Kato) for maximally hypoelliptic operators (in the style of of Helffer-Nourigat, Androulidakis-Mohsen-Yuncken).
 \end{frame}
 
-\begin{frame}{Why do we want to know?}
+\begin{frame}{Summary for the minister (continued)}
 Singular value estimates for operators like $M_fD^{-1}$ have several applications. For example:
 \begin{itemize}
   \item{} Bound state problems: estimate the number of eigenvalues of $D+M_f.$
@@ -203,7 +204,7 @@ Singular value estimates for operators like $M_fD^{-1}$ have several application
   \[
      Q = \sum_{n=0}^\infty \lambda(n,Q)P_n
   \]
-  where $P_n$ is a finite rank $L_2(X,E)$-orthogonal projection, and $\{\lambda(n,Q)\}_{n=0}^\infty$ enumerates the spectrum in increasing order of absolute value.
+  where $P_n$ is a finite rank $L_2(X,E)$-orthogonal projection, and $\{\lambda(n,Q)\}_{n=0}^\infty$ enumerates the spectrum of $Q$ in increasing order of absolute value.
 
   \pause
 
@@ -214,40 +215,31 @@ Singular value estimates for operators like $M_fD^{-1}$ have several application
   Suppose that $X$ is not compact (later, we will simply take $X = \Rl^d$). If we assume that the geometry of $X$ and $E$ are not so bad and that the coefficients of $Q$ are uniformly bounded in the correct sense, then $Q$ is still self-adjoint but its spectrum is complicated.
 
   \pause
-  In this case scattering theory can provide a more useful description.
+  Normally, we say that the spectral measure $E^Q$ of $Q$ splits into three mutually singular parts:
+  \[
+  E^{Q} = E^Q_{pp}+E^Q_{ac}+E^Q_{sc}
+  \]
+  the pure point spectrum (the eigenvalues), the absolutely continuous spectrum and the singular continuous spectrum.
+
+  \pause
+  In this case scattering theory can provide a more useful description than decomposing into eigenfunctions.
 \end{frame}
 
 \begin{frame}{Very elementary scattering theory}
-  A conventional situation is that we have a symmetric differential operator (on $\Rl^d$),
+  A very standard situation is that we have a symmetric differential operator (on $\Rl^d$),
   \[
       D_1 = \sum_{|\alpha|\leq m} a_{\alpha}(x)\partial^{\alpha}
   \]
-  with smooth coefficients $\{a_{\alpha}\}$ that are constant outside of a compact set, say $a_{\alpha}(x) = c_{\alpha}.$ If we define
+  with smooth coefficients $\{a_{\alpha}\}$ that are constant outside of a compact set, say $a_{\alpha}(x) = c_{\alpha}.$
+  \pause
+  Consider the operator
   \[
       D_0 = \sum_{|\alpha|\leq m} c_{\alpha}\partial^{\alpha}
   \]
-  The spectral theory of $D_0$ is easy to understand using the Fourier transform. We expect that $D_1$ ``looks similar"
-  to $D_0$ in some sense. Ideally, $D_1$ is relatively compact with respect to $D_0.$
+  \pause
+  The spectral theory of $D_0$ is easy to understand using the Fourier transform: it is purely absolutely continuous.
 
-  Another question we might want to ask about $D_1$: does it have a discrete spectrum? If so, where is it?
-\end{frame}
-
-\begin{frame}{Uses of scattering theory}
-The Birman-Kato theory is well-known in geometry and topology. It has several applications. \pause
-\begin{itemize}
-\item{} Relative index theorems: Suppose that $D_1$ and $D_0$ are odd self-adjoint operators on a $\Itgr/2\Itgr$-graded Hilbert space $H.$ The relative index of $D_1$ with respect to $D_0$ is
-\[
-\mathrm{ind}(D_1,D_0) = \mathrm{Str}(e^{-tD_1^2}-e^{-tD_0^2})
-\]
-(provided it exists). The relative index is the differences of the indices of $D_1$ and $D_0,$ plus an extra term coming from the continuous spectrum. See Eichhorn \emph{Relative Index Theory} (2008), and also Borisov-M\"uller-Schrader "Relative Index Theorems and Supersymmetric Scattering Theory" (1988).\pause
-\item{} Witten index: It is concievable that one could have a non-Fredholm operator $D$ such that
-\[
-\mathrm{wind}(D) := \lim_{t\to\infty}\Tr(e^{-tD^*D}-e^{-tDD^*})
-\]
-exists. This is called the Witten index, and can be expressed in terms of the scattering data of the pair $(|D|,|D^*|).$ See Carey-Gesztesy-Levitina-Sukochev "The spectral shift function and the Witten index" (2016).
-\item{} The $K$-theoretical version of Levinson's theorem, see Richard "Levinson’s Theorem: An Index Theorem in Scattering Theory" (2016)\pause
-\end{itemize}
-Related is the Lax-Phillips scattering theory, with its well-known applications in geometry (see Melrose, \emph{The Atiyah-Patodi-Singer index theorem} (1992), Lax-Phillips \emph{Scattering theory} (1989)).
+  We expect that the absolutely continuous spectrum of $D_1$ somehow arises from that of $D_0.$
 \end{frame}
 
 
@@ -268,16 +260,6 @@ Related is the Lax-Phillips scattering theory, with its well-known applications 
   (actually, we are interested in a slight modification of this).
 \end{frame}
 
-\begin{frame}{Very elementary scattering theory}
-  With a little more effort, we can compare the solutions of the wave equations
-  \[
-    \frac{\partial^2 u}{\partial t^2} = D_1u,\; \frac{\partial^2 u}{\partial t^2} = D_0u.
-  \]
-  (this is called acoustical scattering; see Reed-Simon Volume III.)
-\end{frame}
-
-
-
 
 \begin{frame}{Very elementary scattering theory}
   Let $D_0,D_1$ be self-adjoint operators on some Hilbert space $H,$ and let $P_{ac}(D_1)$ be the projection onto the absolutely continuous subspace of $D_1.$
@@ -293,11 +275,75 @@ Related is the Lax-Phillips scattering theory, with its well-known applications 
   \]
 \end{frame}
 
+\begin{frame}{Very elementary scattering theory}
+  Here is the general picture to keep in mind. Suppose for the moment that $D_1$ does not have any singular continuous spectrum. We want to understand the solutions to the Schr\"odinger equation
+  \[
+    \frac{du}{dt}(t) = iD_1u(t),\quad u(0) = u_0.
+  \]
+  Splutting the initial value $u_0$ into the point and absolutely continuous parts, the solution looks like
+  \[
+    u(t) = \sum_{\lambda \in \mathrm{spec}_{pp}(D_1)} e^{it\lambda}E^{D_1}(\{\lambda\})u_0 + P_{ac}(D_1)u_0.
+  \]
+  If the wave operator $W_{+}(D_0,D_1)$ exists, then $P_{ac}(D_1)u_0$ looks asymptotically like a function evolving under $D_0.$
+  \[
+      \lim_{t\to\infty} \|e^{itD_0}u_+ - e^{itD_1}P_{ac}(D_1)u_0\| = 0
+  \]
+  where
+  \[
+      u_+ =W_+(D_0,D_1)u_0.
+  \]
+\end{frame}
+
+
+\begin{frame}{Very elementary scattering theory}
+  With a little more effort, we can compare the solutions of the wave equations
+  \[
+    \frac{\partial^2 u}{\partial t^2} = D_1u,\; \frac{\partial^2 u}{\partial t^2} = D_0u.
+  \]
+  (this is called acoustical scattering; see Reed-Simon Volume III.)
+\end{frame}
+
+
+
+\begin{frame}{Goals of scattering theory}
+  As I see it, the primary goal of the Birman-Kato theory is to understand the absolutely continuous spectrum of an operator $D_1$ by relating it to a simpler operator $D_0.$
+  If the wave operators $W_{+}(D_0,D_1)$ exists and is complete, then it provides a unitary equivalence between the absolutely continuous subspaces of $D_1$ and $D_0.$
+
+  Another important task not directly related to scattering theory is to figure out how many eigenvalues there are in the point spectrum.
+\end{frame}
+
+
+
+\begin{frame}{Uses of scattering theory}
+The Birman-Kato theory has had much application in geometry and topology. Some selected applications: \pause
+\begin{itemize}
+\item{} Relative index theorems: Suppose that $D_1$ and $D_0$ are odd self-adjoint operators on a $\Itgr/2\Itgr$-graded Hilbert space $H.$ The relative index of $D_1$ with respect to $D_0$ is
+\[
+\mathrm{ind}(D_1,D_0) = \mathrm{Str}(e^{-tD_1^2}-e^{-tD_0^2})
+\]
+(provided it exists). The relative index is the differences of the indices of $D_1$ and $D_0,$ plus an extra term coming from the continuous spectrum. See Eichhorn \emph{Relative Index Theory} (2008), and also Borisov-M\"uller-Schrader "Relative Index Theorems and Supersymmetric Scattering Theory" (1988).\pause
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Uses of scattering theory}
+\begin{itemize}
+\item{} Witten index: It is concievable that one could have a non-Fredholm operator $D$ such that
+\[
+\mathrm{wind}(D) := \lim_{t\to\infty}\Tr(e^{-tD^*D}-e^{-tDD^*})
+\]
+exists. This is called the Witten index, and can be expressed in terms of the scattering data of the pair $(|D|,|D^*|).$ See Carey-Gesztesy-Levitina-Sukochev "The spectral shift function and the Witten index" (2016).
+\item{} The $K$-theoretical version of Levinson's theorem, see Richard, "Levinson’s Theorem: An Index Theorem in Scattering Theory" (2016)\pause
+\end{itemize}
+Closely related is the Lax-Phillips scattering theory, with its well-known applications in geometry (see Melrose, \emph{The Atiyah-Patodi-Singer index theorem} (1992), Lax-Phillips \emph{Scattering theory} (1989)).
+
+\end{frame}
+
 
 \begin{frame}{Birman's theorem}
   Suppose that $A_1,A_0$ are self-adjoint operators on a Hilbert space $H.$ If for any bounded interval $I\subset \Rl$ we have
   \[
-    \chi_I(A_1)(A_1-A_0)\chi_{I}(A_0) \in \Lc_1(H)
+    E^{A_1}(I)(A_1-A_0)E^{A_0}(I) \in \Lc_1(H)
   \]
   then the wave operators $W_{\pm}(A_1,A_0)$ exist and are complete.\\\pause
 
@@ -321,6 +367,7 @@ Related is the Lax-Phillips scattering theory, with its well-known applications 
   \]
   This belongs to $\Lc_1$ for sufficiently large $N,$ thanks to some old results of Birman-Solomyak.
 \end{frame}
+
 
 \begin{frame}{Stratified Lie groups}
   Let $\gf$ be a Lie algebra which admits a direct sum decomposition
@@ -397,53 +444,62 @@ M_f(1-\Delta)^{-\frac{r}{2}}:L_2(G)\to L_2(G)
   \]
   is trace class.
 \end{theorem}
-This is a stratified version of an old result of Birman and Solomyak.
+\end{frame}
+
+\begin{frame}{Reminder on singular values}
+Given a compact operator $T$ on some Hilbert space, the $(n+1)$-st singular value of $T$ is defined as
+\[
+  \mu(n,T) :=\inf\{\|T-R\|\;:\;\mathrm{rank}(R)\leq n\}.
+\]
+One say that $T \in \Lc_{p,\infty}(H)$ if $\mu(n.T) = O(n^{-\frac1p}),$ with
+\[
+  \|T\|_{p,\infty} := \sup_{n\geq 0} (n+1)^{\frac1p}\mu(n,T).
+\]
 \end{frame}
 
 \begin{frame}{Some results}
 \begin{theorem}\label{main_nontrivial_cwikel_theorem}
-Let $G$ be a stratified Lie group with stratification $\gf = \bigoplus_{n=1}^\infty \gf_n,$ homogeneous dimension $d_{\hom} = \sum_{n=1}^\infty n\cdot \mathrm{dim}(\gf_n)$
+Let $G$ be a stratified Lie group with stratification $\gf = \bigoplus_{n=1}^\infty \gf_n,$ homogeneous dimension $Q = \sum_{n=1}^\infty n\cdot \mathrm{dim}(\gf_n)$
 and a fixed sub-Laplacian $\Delta = \sum_{j=1}^m X_j^2,$ where $\{X_j\}_{j=1}^m$ is a basis for $\gf_1.$
 \begin{enumerate}[{\rm (i)}]
 \item\label{mncta} if $p>2,$ then
-$$\|M_f(-\Delta)^{-\frac{d_{\hom}}{2p}}\|_{p,\infty}\leq c_p\|f\|_{L_p(G)}$$
+$$\|M_f(-\Delta)^{-\frac{Q}{2p}}\|_{p,\infty}\leq c_p\|f\|_{L_p(G)}$$
 \item\label{mnctb} if $p<2$ and $q>2,$ then
-$$\|M_f(1-\Delta)^{-\frac{d_{\hom}}{2p}}\|_{p,\infty}\leq c_{p,q}\|f\|_{\ell_p(L_q)(G)}.$$
+$$\|M_f(1-\Delta)^{-\frac{Q}{2p}}\|_{p,\infty}\leq c_{p,q}\|f\|_{\ell_p(L_q)(G)}.$$
 \item\label{mnctc} if $p=2$ and $q>2,$ then
-$$\|M_f(1-\Delta)^{-\frac{d_{\hom}}{2p}}\|_{p,\infty}\leq c_q\|f\|_{\ell_{2,\log}(L_q)(G)}.$$
+$$\|M_f(1-\Delta)^{-\frac{Q}{2p}}\|_{p,\infty}\leq c_q\|f\|_{\ell_{2,\log}(L_q)(G)}.$$
 \end{enumerate}
 \end{theorem}
-The precise definition of the operator $M_f(-\Delta)^{-\frac{d_{\hom}}{2p}}$ is discussed below in Section \ref{specific_cwikel_section}.
+% Having Theorem \ref{main_nontrivial_cwikel_theorem} at hands and using H\"older's inequality, we immediately obtain the following corollary.
+%
+% \begin{corollary}\label{main_nontrivial_cwikel_corollary} Let $G$ be a stratified Lie group with stratification $\gf = \bigoplus_{n=1}^\infty \gf_n,$ homogeneous dimension $Q = \sum_{n=1}^\infty n\cdot \mathrm{dim}(\gf_n)$
+% and a fixed sub-Laplacian $\Delta = \sum_{j=1}^m X_j^2,$ where $\{X_j\}_{j=1}^m$ is a basis for $\gf_1.$
+% \begin{enumerate}[{\rm (i)}]
+% \item if $p>1,$ then
+% $$\|(-\Delta)^{-\frac{Q}{4p}}M_f(-\Delta)^{-\frac{Q}{4p}}\|_{p,\infty}\leq c_p\|f\|_{L_p(G)}.$$
+% \item if $p<1$ and $q>1,$ then
+% $$\|(1-\Delta)^{-\frac{Q}{4p}}M_f(1-\Delta)^{-\frac{Q}{4p}}\|_{p,\infty}\leq c_{p,q}\|f\|_{\ell_p(L_q)(G)}.$$
+% \item if $p=1$ and $q>1,$ then
+% $$\|(1-\Delta)^{-\frac{Q}{4p}}M_f(1-\Delta)^{-\frac{Q}{4p}}\|_{p,\infty}\leq c_q\|f\|_{\ell_{1,\log}(L_q)(G)}.$$
+% \end{enumerate}
+% \end{corollary}
+\end{frame}
 
-Having Theorem \ref{main_nontrivial_cwikel_theorem} at hands and using H\"older's inequality, we immediately obtain the following corollary.
 
-\begin{corollary}\label{main_nontrivial_cwikel_corollary} Let $G$ be a stratified Lie group with stratification $\gf = \bigoplus_{n=1}^\infty \gf_n,$ homogeneous dimension $d_{\hom} = \sum_{n=1}^\infty n\cdot \mathrm{dim}(\gf_n)$
-and a fixed sub-Laplacian $\Delta = \sum_{j=1}^m X_j^2,$ where $\{X_j\}_{j=1}^m$ is a basis for $\gf_1.$
-\begin{enumerate}[{\rm (i)}]
-\item if $p>1,$ then
-$$\|(-\Delta)^{-\frac{d_{\hom}}{4p}}M_f(-\Delta)^{-\frac{d_{\hom}}{4p}}\|_{p,\infty}\leq c_p\|f\|_{L_p(G)}.$$
-\item if $p<1$ and $q>1,$ then
-$$\|(1-\Delta)^{-\frac{d_{\hom}}{4p}}M_f(1-\Delta)^{-\frac{d_{\hom}}{4p}}\|_{p,\infty}\leq c_{p,q}\|f\|_{\ell_p(L_q)(G)}.$$
-\item if $p=1$ and $q>1,$ then
-$$\|(1-\Delta)^{-\frac{d_{\hom}}{4p}}M_f(1-\Delta)^{-\frac{d_{\hom}}{4p}}\|_{p,\infty}\leq c_q\|f\|_{\ell_{1,\log}(L_q)(G)}.$$
-\end{enumerate}
-\end{corollary}
-
+\begin{frame}{Some results}
 Of course, a similar result holds for Schatten ideals.
 
 \begin{theorem}\label{cwikel schatten_theorem}
-Let $G$ be a stratified Lie group with stratification $\gf = \bigoplus_{n=1}^\infty \gf_n,$ homogeneous dimension $d_{\hom} = \sum_{n=1}^\infty n\cdot \mathrm{dim}(\gf_n)$ and a fixed sub-Laplacian $\Delta = \sum_{j=1}^m X_j^2,$ where $\{X_j\}_{j=1}^m$ is a basis for $\gf_1.$
 \begin{enumerate}[{\rm (i)}]
-\item if $p>2$ and $r>\frac{d_{\hom}}{p},$ then
+\item if $p>2$ and $r>\frac{Q}{p},$ then
 $$\|M_f(-\Delta)^{-\frac{r}{2}}\|_p\leq c_{p,r}\|f\|_{L_p(G)}.$$
-\item if $p=2$ and $r>\frac{d_{\hom}}{p},$ then
+\item if $p=2$ and $r>\frac{Q}{p},$ then
 $$\|M_f(1-\Delta)^{-\frac{r}{2}}\|_p=c_{p,r}\|f\|_{L_p(G)}.$$
-\item if $p<2,$ $r>\frac{d_{\hom}}{p}$and $q>2,$ then
+\item if $p<2,$ $r>\frac{Q}{p}$and $q>2,$ then
 $$\|M_f(1-\Delta)^{-\frac{r}{2}}\|_p\leq c_{p,q,r}\|f\|_{\ell_p(L_q)(G)}.$$
 \end{enumerate}
 \end{theorem}
 \end{frame}
-
 
 
 \begin{frame}{Birman's theorem for stratified Lie groups}
@@ -457,14 +513,32 @@ $$\|M_f(1-\Delta)^{-\frac{r}{2}}\|_p\leq c_{p,q,r}\|f\|_{\ell_p(L_q)(G)}.$$
       D_0 = \sum_{|\alpha|_h\leq m} c_{\alpha}X^{\alpha}
   \]
   is a good model for $D_1$ asymptotically, since $D_1-D_0$ is a differential operator with compactly supported coefficients.
+
+  The preceding theorems verify Birman's theorem for $D_1,D_0.$
 \end{frame}
+
+\begin{frame}{What about the point spectrum?}
+  These estimates are also useful to estimate the number of eigenvalues of operators.
+\begin{theorem}[Cwikel--Lieb--Rozenblum estimate]\label{CLR_theorem}
+    Assume that $Q>2.$ Let $V \in L_{\frac{Q}{2}}(G)$ be real-valued. The quadratic form sum
+    \[
+        -\Delta\dot{+}M_V
+    \]
+    is well-defined on the form domain $W^1_2(G),$ and defines an unbounded self-adjoint operator on $L_2(G)$ with essential spectrum $[0,\infty).$ The operator $-\Delta\dot{+}M_V$ has finitely many negative eigenvalues, and the total number of eigenvalues less than $-t$ for $t\geq 0$ is bounded by
+    \[
+        \Tr(\chi_{(-\infty,-t)}(-\Delta\dot{+}M_V)) \leq C_{G}\int_{G} (V+t)_-^{\frac{Q}{2}}.
+    \]
+\end{theorem}
+\end{frame}
+
+
 
 
 \begin{frame}{Spectral asymptotics}
 Related to these estimates we have spectral asymptotics. In the following theorem, $\mu$ denotes the singular value function. In particular, the sequence $\{\mu(n,T)\}_{n=0}^\infty$ is the sequence of singular values of a compact operator $T.$ We give a precise definition of $\mu$ in the next section.
 \begin{theorem}\label{main_asymptotic_formula}
-Let $G$ be a non-abelian stratified Lie group with stratification $\gf = \bigoplus_{n=1}^\infty \gf_n,$ homogeneous dimension $d_{\hom} = \sum_{n=1}^\infty n\cdot \mathrm{dim}(\gf_n)$
-and a fixed sub-Laplacian $\Delta = \sum_{j=1}^m X_j^2,$ where $\{X_j\}_{j=1}^m$ is a basis for $\gf_1.$ Let $k\in\mathbb{N}$ and let $p=\frac{d_{\hom}}{k}.$ If one of the following conditions holds
+Let $G$ be a non-abelian stratified Lie group with stratification $\gf = \bigoplus_{n=1}^\infty \gf_n,$ homogeneous dimension $Q = \sum_{n=1}^\infty n\cdot \mathrm{dim}(\gf_n)$
+and a fixed sub-Laplacian $\Delta = \sum_{j=1}^m X_j^2,$ where $\{X_j\}_{j=1}^m$ is a basis for $\gf_1.$ Let $k\in\mathbb{N}$ and let $p=\frac{Q}{k}.$ If one of the following conditions holds
 \begin{enumerate}[{\rm (i)}]
 \item{} $p>1$ and $0\leq f \in L_p(G);$
 \item{} $p<1$ and $0\leq f\in \ell_p(L_q)(G)$ for some $q>1;$
@@ -472,7 +546,7 @@ and a fixed sub-Laplacian $\Delta = \sum_{j=1}^m X_j^2,$ where $\{X_j\}_{j=1}^m$
 \end{enumerate}
 then there exists the limit
 $$\lim_{t\to\infty} t\mu(t,(1-\Delta)^{-\frac{k}{4}}M_f(1-\Delta)^{-\frac{k}{4}})^p=c_G\int_G f^p.$$
-Moreover, if $k<d_{\hom},$ then we also have the existence of the limit
+Moreover, if $k<Q,$ then we also have the existence of the limit
 $$\lim_{t\to\infty} t\mu(t,(-\Delta)^{-\frac{k}{4}}M_f(-\Delta)^{-\frac{k}{4}})^p=c_G\int_G f^p.$$
 Here, the constant $c_G>0$ depends on the stratification and also on the particular choice of the basis in $\gf_1.$
 \end{theorem}
@@ -481,39 +555,20 @@ Here, the constant $c_G>0$ depends on the stratification and also on the particu
 
 \begin{frame}{Semiclassical corollary}
 \begin{corollary}
-    Let $G\neq\mathbb{H}^1$ be a stratified Lie group with stratification $\gf = \bigoplus_{n=1}^\infty \gf_n,$ homogeneous dimension $d_{\hom} = \sum_{n=1}^\infty n\cdot \mathrm{dim}(\gf_n)$
+    Let $G\neq\mathbb{H}^1$ be a stratified Lie group with stratification $\gf = \bigoplus_{n=1}^\infty \gf_n,$ homogeneous dimension $Q = \sum_{n=1}^\infty n\cdot \mathrm{dim}(\gf_n)$
     and a fixed sub-Laplacian $\Delta = \sum_{j=1}^m X_j^2,$ where $\{X_j\}_{j=1}^m$ is a basis for $\gf_1.$
 
-    Assume that $V\in L_{\frac{d_{\hom}}{2}}(G)$ is real-valued. For $h>0,$ the operator $-h^2\Delta\dot{+}M_V$ can be defined in the sense of quadratic forms.
+    Assume that $V\in L_{\frac{Q}{2}}(G)$ is real-valued. For $h>0,$ the operator $-h^2\Delta\dot{+}M_V$ can be defined in the sense of quadratic forms.
     There exists a constant $c_{G}>0$ such that
     \[
-        \lim_{h\to 0} h^{d_{\hom}}\Tr(\chi_{(-\infty,0)}(-h^2\Delta\dot{+}M_V)) = c_{G}\int_{G} V_-^{\frac{d_{\hom}}{2}}.
+        \lim_{h\to 0} h^{Q}\Tr(\chi_{(-\infty,0)}(-h^2\Delta\dot{+}M_V)) = c_{G}\int_{G} V_-^{\frac{Q}{2}}.
     \]
     Here, $V_- = \frac{1}{2}(|V|-V)$ is the negative part of $V.$
 \end{corollary}
 \end{frame}
 
 
-\begin{frame}
-\begin{theorem}[Cwikel--Lieb--Rozenblum estimate]\label{CLR_theorem}
-    Assume that $d_{\hom}>2.$ Let $V \in L_{\frac{d_{\hom}}{2}}(G)$ be real-valued. The quadratic form sum
-    \[
-        -\Delta\dot{+}M_V
-    \]
-    is well-defined on the form domain $W^1_2(G),$ and defines an unbounded self-adjoint operator on $L_2(G)$ with essential spectrum $[0,\infty).$ The operator $-\Delta\dot{+}M_V$ has finitely many negative eigenvalues, and the total number of eigenvalues less than $-t$ for $t\geq 0$ is bounded by
-    \[
-        \Tr(\chi_{(-\infty,-t)}(-\Delta\dot{+}M_V)) \leq C_{G}\int_{G} (V+t)_-^{\frac{d_{\hom}}{2}}.
-    \]
-\end{theorem}
-\end{frame}
 
-\begin{frame}
-
-  \begin{theorem}
-  Let $G$ be a stratified Lie group with $d_{\hom}>4,$ and let $f\in(L_{\frac{d_{\hom}}{2}}\cap L_1)(G)$ be real valued. The wave operators exist and are complete for the couple $(-\Delta,-\Delta\dot{+}M_f),$ where $-\Delta\dot{+}M_f$ denotes the quadratic form sum.
-  \end{theorem}
-  We can make similar assertions about pairs of the form $(D_1,D_0),$ where $D_1$ and $D_0$ are maximally hypoelliptic differential operators whose coefficients are asymptotically equal.
-\end{frame}
 
 \begin{frame}{The future}
 These estimates are suboptimal for a number of reasons, one of them being that we state the results for functions on $G$ rather than a general Heisenberg manifold (or an even more general filtered manifold). This is probably not a significant restriction.
