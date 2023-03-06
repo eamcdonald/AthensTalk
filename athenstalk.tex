@@ -172,7 +172,7 @@
 \end{frame}
 
 \begin{frame}{Executive summary}
-  We have some new results on the spectral theory of operators of the form
+  We have some technical results on the spectra of operators of the form
   \[
     M_f D^{-1}:L_2(G)\to L_2(G)
   \]
@@ -181,7 +181,7 @@
   Specifically, we now have a much better understanding of the singular values of these operators.
   \pause
 
-  These are interesting on their own, but I will discuss a program (mostly unfinished) to do scattering theory (in the style of Birman-Kato) for maximally hypoelliptic operators (in the style of of Helffer-Nourigat, Androulidakis-Mohsen-Yuncken).
+  These results are interesting on their own, but I will discuss a program (mostly unfinished) to do scattering theory (in the style of Birman-Kato) for maximally hypoelliptic operators (in the style of of Helffer-Nourigat, Androulidakis-Mohsen-Yuncken).
 \end{frame}
 
 \begin{frame}{Why do we want to know?}
@@ -233,21 +233,21 @@ Singular value estimates for operators like $M_fD^{-1}$ have several application
 \end{frame}
 
 \begin{frame}{Uses of scattering theory}
-The Birman-Kato theory is well-known in geometry and topology.
+The Birman-Kato theory is well-known in geometry and topology. It has several applications. \pause
 \begin{itemize}
-\item{} Relative index theorems: Suppose that $D_1$ and $D_0$ are odd self-adjoint operators on a $\Itgr/2\Itgr$-graded Hilbert space $H.$ The relative index of $D_1$ and $D_0$ is
+\item{} Relative index theorems: Suppose that $D_1$ and $D_0$ are odd self-adjoint operators on a $\Itgr/2\Itgr$-graded Hilbert space $H.$ The relative index of $D_1$ with respect to $D_0$ is
 \[
 \mathrm{ind}(D_1,D_0) = \mathrm{Str}(e^{-tD_1^2}-e^{-tD_0^2})
 \]
-(provided it exists). The relative index is the differences of the indices of $D_1$ and $D_0,$ plus an extra term coming from the continuous spectrum. See Eichhorn \emph{Relative Index Theory} (2008).
+(provided it exists). The relative index is the differences of the indices of $D_1$ and $D_0,$ plus an extra term coming from the continuous spectrum. See Eichhorn \emph{Relative Index Theory} (2008), and also Borisov-M\"uller-Schrader "Relative Index Theorems and Supersymmetric Scattering Theory" (1988).\pause
 \item{} Witten index: It is concievable that one could have a non-Fredholm operator $D$ such that
 \[
 \mathrm{wind}(D) := \lim_{t\to\infty}\Tr(e^{-tD^*D}-e^{-tDD^*})
 \]
-exists. This is called the Witten index, and can be expressed in terms of the scattering data of the pair $(|D|,|D^*|).$ See ALCS..(?)
-\item{} Richard's topological version of Levinson's theorem.
+exists. This is called the Witten index, and can be expressed in terms of the scattering data of the pair $(|D|,|D^*|).$ See Carey-Gesztesy-Levitina-Sukochev "The spectral shift function and the Witten index" (2016).
+\item{} The $K$-theoretical version of Levinson's theorem, see Richard "Levinson’s Theorem: An Index Theorem in Scattering Theory" (2016)\pause
 \end{itemize}
-Related is the Lax-Phillips scattering theory, with its well-known applications (see Melrose, Lax-Phillips).
+Related is the Lax-Phillips scattering theory, with its well-known applications in geometry (see Melrose, \emph{The Atiyah-Patodi-Singer index theorem} (1992), Lax-Phillips \emph{Scattering theory} (1989)).
 \end{frame}
 
 
@@ -273,7 +273,7 @@ Related is the Lax-Phillips scattering theory, with its well-known applications 
   \[
     \frac{\partial^2 u}{\partial t^2} = D_1u,\; \frac{\partial^2 u}{\partial t^2} = D_0u.
   \]
-  (acoustical scattering; see Reed-Simon III)
+  (this is called acoustical scattering; see Reed-Simon Volume III.)
 \end{frame}
 
 
@@ -282,7 +282,7 @@ Related is the Lax-Phillips scattering theory, with its well-known applications 
 \begin{frame}{Very elementary scattering theory}
   Let $D_0,D_1$ be self-adjoint operators on some Hilbert space $H,$ and let $P_{ac}(D_1)$ be the projection onto the absolutely continuous subspace of $D_1.$
 
-  Define
+  Define two operators $W_{\pm}(D_0,D_1)$ by
   \[
     W_{\pm}(D_0,D_1) := {\mathrm{s}-}\lim_{t\to\pm \infty} e^{-itD_0}e^{itD_1}P_{ac}(D_1).
   \]
@@ -334,7 +334,7 @@ Related is the Lax-Phillips scattering theory, with its well-known applications 
   \[
     Q := \sum_{n=1}^\infty n\mathrm{dim}(\gf_n)
   \]
-  is called the homogeneous dimension of $\gf.$\pause
+  is called the homogeneous dimension of $\gf.$
 \end{frame}
 
 \begin{frame}{Stratified Lie groups}
