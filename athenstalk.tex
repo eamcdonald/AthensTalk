@@ -137,7 +137,7 @@
    
 \newcommand{\gf}{\mathfrak{g}}
 
-\date{\today}
+\date{8/3/2023}
    
 \begin{document}
 
@@ -538,16 +538,18 @@ $$\|M_f(1-\Delta)^{-\frac{r}{2}}\|_p\leq c_{p,q,r}\|f\|_{\ell_p(L_q)(G)}.$$
 Related to these estimates we have spectral asymptotics. In the following theorem, $\mu$ denotes the singular value function. In particular, the sequence $\{\mu(n,T)\}_{n=0}^\infty$ is the sequence of singular values of a compact operator $T.$ We give a precise definition of $\mu$ in the next section.
 \begin{theorem}\label{main_asymptotic_formula}
 Let $G$ be a non-abelian stratified Lie group with stratification $\gf = \bigoplus_{n=1}^\infty \gf_n,$ homogeneous dimension $Q = \sum_{n=1}^\infty n\cdot \mathrm{dim}(\gf_n)$
-and a fixed sub-Laplacian $\Delta = \sum_{j=1}^m X_j^2,$ where $\{X_j\}_{j=1}^m$ is a basis for $\gf_1.$ Let $k\in\mathbb{N}$ and let $p=\frac{Q}{k}.$ If one of the following conditions holds
-\begin{enumerate}[{\rm (i)}]
-\item{} $p>1$ and $0\leq f \in L_p(G);$
-\item{} $p<1$ and $0\leq f\in \ell_p(L_q)(G)$ for some $q>1;$
-\item{} $p=1$ and $0\leq f\in \ell_{1,\log}(L_q)(G)$ for some $q>1;$
-\end{enumerate}
+and a fixed sub-Laplacian $\Delta = \sum_{j=1}^m X_j^2,$ where $\{X_j\}_{j=1}^m$ is a basis for $\gf_1.$ Let $k\in\mathbb{N}$ and let $p=\frac{Q}{k}.$
+% If one of the following conditions holds
+% \begin{enumerate}[{\rm (i)}]
+% \item{} $p>1$ and $0\leq f \in L_p(G);$
+% \item{} $p<1$ and $0\leq f\in \ell_p(L_q)(G)$ for some $q>1;$
+% \item{} $p=1$ and $0\leq f\in \ell_{1,\log}(L_q)(G)$ for some $q>1;$
+% \end{enumerate}
+then {\color{red} Under some technical assumptions on $f$ (depending on $p$),}
 then there exists the limit
 $$\lim_{t\to\infty} t\mu(t,(1-\Delta)^{-\frac{k}{4}}M_f(1-\Delta)^{-\frac{k}{4}})^p=c_G\int_G f^p.$$
-Moreover, if $k<Q,$ then we also have the existence of the limit
-$$\lim_{t\to\infty} t\mu(t,(-\Delta)^{-\frac{k}{4}}M_f(-\Delta)^{-\frac{k}{4}})^p=c_G\int_G f^p.$$
+% Moreover, if $k<Q,$ then we also have the existence of the limit
+% $$\lim_{t\to\infty} t\mu(t,(-\Delta)^{-\frac{k}{4}}M_f(-\Delta)^{-\frac{k}{4}})^p=c_G\int_G f^p.$$
 Here, the constant $c_G>0$ depends on the stratification and also on the particular choice of the basis in $\gf_1.$
 \end{theorem}
 \end{frame}
