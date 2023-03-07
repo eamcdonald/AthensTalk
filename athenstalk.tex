@@ -282,8 +282,9 @@ Singular value estimates for operators like $M_fD^{-1}$ have several application
   \]
   Splitting the initial value $u_0$ into the point and absolutely continuous parts, the solution looks like
   \[
-    u(t) = \sum_{\lambda \in \mathrm{spec}_{pp}(D_1)} e^{it\lambda}E^{D_1}(\{\lambda\})u_0 + P_{ac}(D_1)u_0.
+    u(t) = \sum_{\lambda} e^{it\lambda}E^{D_1}(\{\lambda\})u_0 + P_{ac}(D_1)u_0.
   \]
+  where the sum is over the eigenvalues of $D_1.$
   If the wave operator $W_{+}(D_0,D_1)$ exists, then $P_{ac}(D_1)u_0$ looks asymptotically like a function evolving under $D_0.$
   \[
       \lim_{t\to\infty} \|e^{itD_0}u_+ - e^{itD_1}P_{ac}(D_1)u_0\| = 0
@@ -307,7 +308,7 @@ Singular value estimates for operators like $M_fD^{-1}$ have several application
 
 \begin{frame}{Goals of scattering theory}
   As I see it, the primary goal of the Birman-Kato theory is to understand the absolutely continuous spectrum of an operator $D_1$ by relating it to a simpler operator $D_0.$
-  If the wave operators $W_{+}(D_0,D_1)$ exists and is complete, then it provides a unitary equivalence between the absolutely continuous subspaces of $D_1$ and $D_0.$
+  If the wave operator $W_{+}(D_0,D_1)$ exists and is complete, then it provides a unitary equivalence between the absolutely continuous subspaces of $D_1$ and $D_0.$
 
   Another important task not directly related to scattering theory is to figure out how many eigenvalues there are in the point spectrum.
 \end{frame}
@@ -335,8 +336,7 @@ The Birman-Kato theory has had much application in geometry and topology. Some s
 exists. This is called the Witten index, and can be expressed in terms of the scattering data of the pair $(|D|,|D^*|).$ See Carey-Gesztesy-Levitina-Sukochev "The spectral shift function and the Witten index" (2016).\pause
 \item{} The $K$-theoretical version of Levinson's theorem, see Richard, "Levinson’s Theorem: An Index Theorem in Scattering Theory" (2016)\pause
 \end{itemize}
-Closely related is the Lax-Phillips scattering theory, with its well-known applications in geometry (see Melrose, \emph{The Atiyah-Patodi-Singer index theorem} (1992), Lax-Phillips \emph{Scattering theory} (1989)).
-
+Closely related is the Lax-Phillips scattering theory, with its well-known applications in geometry (see Lax-Phillips \emph{Scattering theory} (1989)) and geometric scattering theory (Melrose, \emph{The Atiyah-Patodi-Singer index theorem} (1992)).
 \end{frame}
 
 
@@ -400,11 +400,11 @@ Closely related is the Lax-Phillips scattering theory, with its well-known appli
     G = \exp(\gf).
   \]
   This is a homeomorphism, and the Lebesgue measure of $\gf$ pushes forward to the Haar measure of $G.$
-  Suppose that $\gf_1$ has a basis $\{X_1,\ldots,X_m\}.$, and $G$ is essentially a Euclidean space $\Rl^d$ equipped with a family of vector fields
+  Suppose that $\gf_1$ has a basis $\{X_1,\ldots,X_m\}.$ Under the homeomorphism $G\approx \Rl^N,$ the basis
   \[
     X_1,\ldots,X_m
   \]
-  with polynomial coefficients satisfying the H\"ormander condition at every point.
+  is a family of vector fields with polynomial coefficients satisfying the H\"ormander condition at every point.
 \end{frame}
 
 \begin{frame}{Ellipticity on stratified Lie groups}
@@ -526,21 +526,35 @@ $$\|M_f(1-\Delta)^{-\frac{r}{2}}\|_p\leq c_{p,q,r}\|f\|_{\ell_p(L_q)(G)}.$$
   \]
   is a good model for $D_1$ asymptotically, since $D_1-D_0$ is a differential operator with compactly supported coefficients.
 
-  The preceding theorems verify Birman's theorem for $D_1,D_0.$
+  The preceding theorems verify the existence and completeness of the wave operators for $D_1,D_0.$
+\end{frame}
+
+\begin{frame}{What about the point spectrum}
+Recall that if $D_1$ is a self-adjoint operator with no singular continuous spectrum, then the differential equation
+  \[
+    \frac{du}{dt}(t) = iD_1u(t),\quad u(0) = u_0.
+  \]
+  has solution
+  \[
+    u(t) = \sum_{\lambda} e^{it\lambda}E^{D_1}(\{\lambda\})u_0 + P_{ac}(D_1)u_0.
+  \]
+  If we know that the wave operator $W_+(D_0,D_1)$ exists, then we have a good understanding of the absolutely continuous part, but what about the discrete part?
 \end{frame}
 
 \begin{frame}{What about the point spectrum?}
-  These estimates are also useful to estimate the number of eigenvalues of operators.
+  Cwikel estimates also give us upper bounds for the number of eigenvalues.
 \begin{theorem}[Cwikel--Lieb--Rozenblum estimate]\label{CLR_theorem}
-    Assume that $Q>2.$ Let $V \in L_{\frac{Q}{2}}(G)$ be real-valued. The quadratic form sum
+    Assume that $Q>2.$ Let $V \in L_{\frac{Q}{2}}(G)$ be real-valued. The quadratic form sum $-\Delta\dot{+}M_V$
+    defines an unbounded self-adjoint operator on $L_2(G)$ with essential spectrum $[0,\infty),$ and
     \[
-        -\Delta\dot{+}M_V
+        \Tr(\chi_{(-\infty,0)}(-\Delta\dot{+}M_V)) \leq C_{G}\int_{G} V_-^{\frac{Q}{2}}.
     \]
-    is well-defined on the form domain $W^1_2(G),$ and defines an unbounded self-adjoint operator on $L_2(G)$ with essential spectrum $[0,\infty).$ The operator $-\Delta\dot{+}M_V$ has finitely many negative eigenvalues, and the total number of eigenvalues less than $-t$ for $t\geq 0$ is bounded by
-    \[
-        \Tr(\chi_{(-\infty,-t)}(-\Delta\dot{+}M_V)) \leq C_{G}\int_{G} (V+t)_-^{\frac{Q}{2}}.
-    \]
+    Here, $V_- = \frac{1}{2}(|V|-V)$ is the negative part of $V.$
 \end{theorem}
+{\color{red}
+It follows from this that if $f \in L_{\frac{Q}{2}(G)},$ then the operator $-\Delta+M_f$ has absolutely continuous spectrum $[0,\infty),$ which scatters like $-\Delta.$
+There may be some eigenvalues in $(-\infty,0),$ but only $C_G\int_G V_-^{\frac{Q}{2}}$ of them.
+}
 \end{frame}
 
 
@@ -569,16 +583,30 @@ Here, the constant $c_G>0$ depends on the stratification and also on the particu
 
 \begin{frame}{Semiclassical corollary}
 \begin{corollary}
-    Let $G\neq\mathbb{H}^1$ be a stratified Lie group with stratification $\gf = \bigoplus_{n=1}^\infty \gf_n,$ homogeneous dimension $Q = \sum_{n=1}^\infty n\cdot \mathrm{dim}(\gf_n)$
-    and a fixed sub-Laplacian $\Delta = \sum_{j=1}^m X_j^2,$ where $\{X_j\}_{j=1}^m$ is a basis for $\gf_1.$
-
     Assume that $V\in L_{\frac{Q}{2}}(G)$ is real-valued. For $h>0,$ the operator $-h^2\Delta\dot{+}M_V$ can be defined in the sense of quadratic forms.
     There exists a constant $c_{G}>0$ such that
     \[
         \lim_{h\to 0} h^{Q}\Tr(\chi_{(-\infty,0)}(-h^2\Delta\dot{+}M_V)) = c_{G}\int_{G} V_-^{\frac{Q}{2}}.
     \]
-    Here, $V_- = \frac{1}{2}(|V|-V)$ is the negative part of $V.$
 \end{corollary}
+\end{frame}
+
+\begin{frame}{Brief description of the proofs}
+How do we go about these results?
+
+The key is to study the ``zeta function"
+\begin{equation*}
+  z\mapsto \Tr(M_f^z(1-\Delta)^{-\frac{z}{2}}),\quad \Re(z) > Q.
+\end{equation*}
+This can be computed using the trace on the group von Neumann algebra $VN(G),$ and in turn is computable using the representation of $G.$
+
+The important point is that this zeta function is similar to
+\[
+  z\mapsto \Tr((M_f^{\frac12}(1-\Delta)^{-\frac12}M_f^{\frac12})^z)
+\]
+which determines the spectrum of $M_f^{\frac12}(1-\Delta)^{-\frac12}M_f^{\frac12}.$
+
+
 \end{frame}
 
 
