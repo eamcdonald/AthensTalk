@@ -166,7 +166,7 @@
 \begin{frame}{Plan for this talk}
     \begin{enumerate}
         \item{} Some elementary background on scattering theory
-        \item{} Stratified lie groups and recent developments
+        \item{} Stratified Lie groups and recent developments
         \item{} Singular values, Cwikel's estimates and Birman's theorem.
         \item{} Some new results
     \end{enumerate}
@@ -251,11 +251,11 @@ Singular value estimates for operators like $M_fD^{-1}$ have several application
   Or $u(t) = \exp(itD_1)u(0).$ We want to know when
   there exists $u_+$ such that
   \[
-      \lim_{t\to\infty} \|\exp(itD_1)u(0)-\exp(itD_0)u_+\| = 0.
+      \lim_{t\to\infty} \|\exp(itD_1)u(0)-\exp(itD_0)u_+\|_{L_2(X)} = 0.
   \]
-  Or, alternatively, when there exists a strong limit
+  Or, alternatively, when there exists a strong operator topology limit
   \[
-    W_+(D_1,D_0) := {\mathrm{s}-}\lim_{t\to\infty} e^{-itD_0}e^{itD_1}.
+    W_+(D_1,D_0) := \lim_{t\to\infty} e^{-itD_0}e^{itD_1}.
   \]
   (actually, we are interested in a slight modification of this).
 \end{frame}
@@ -280,7 +280,7 @@ Singular value estimates for operators like $M_fD^{-1}$ have several application
   \[
     \frac{du}{dt}(t) = iD_1u(t),\quad u(0) = u_0.
   \]
-  Splutting the initial value $u_0$ into the point and absolutely continuous parts, the solution looks like
+  Splitting the initial value $u_0$ into the point and absolutely continuous parts, the solution looks like
   \[
     u(t) = \sum_{\lambda \in \mathrm{spec}_{pp}(D_1)} e^{it\lambda}E^{D_1}(\{\lambda\})u_0 + P_{ac}(D_1)u_0.
   \]
@@ -321,7 +321,7 @@ The Birman-Kato theory has had much application in geometry and topology. Some s
 \[
 \mathrm{ind}(D_1,D_0) = \mathrm{Str}(e^{-tD_1^2}-e^{-tD_0^2})
 \]
-(provided it exists). The relative index is the differences of the indices of $D_1$ and $D_0,$ plus an extra term coming from the continuous spectrum. See Eichhorn \emph{Relative Index Theory} (2008), and also Borisov-M\"uller-Schrader "Relative Index Theorems and Supersymmetric Scattering Theory" (1988).\pause
+(provided it exists). The relative index is the differences of the indices of $D_1$ and $D_0,$ plus an extra term coming from the continuous spectrum. See Eichhorn \emph{Relative Index Theory} (2008), and also Borisov-M\"uller-Schrader "Relative Index Theorems and Supersymmetric Scattering Theory" (1988)
 \end{itemize}
 \end{frame}
 
@@ -332,7 +332,7 @@ The Birman-Kato theory has had much application in geometry and topology. Some s
 \[
 \mathrm{wind}(D) := \lim_{t\to\infty}\Tr(e^{-tD^*D}-e^{-tDD^*})
 \]
-exists. This is called the Witten index, and can be expressed in terms of the scattering data of the pair $(|D|,|D^*|).$ See Carey-Gesztesy-Levitina-Sukochev "The spectral shift function and the Witten index" (2016).
+exists. This is called the Witten index, and can be expressed in terms of the scattering data of the pair $(|D|,|D^*|).$ See Carey-Gesztesy-Levitina-Sukochev "The spectral shift function and the Witten index" (2016).\pause
 \item{} The $K$-theoretical version of Levinson's theorem, see Richard, "Levinson’s Theorem: An Index Theorem in Scattering Theory" (2016)\pause
 \end{itemize}
 Closely related is the Lax-Phillips scattering theory, with its well-known applications in geometry (see Melrose, \emph{The Atiyah-Patodi-Singer index theorem} (1992), Lax-Phillips \emph{Scattering theory} (1989)).
@@ -366,6 +366,16 @@ Closely related is the Lax-Phillips scattering theory, with its well-known appli
     (A_1-A_0)(1-\Delta)^{-N} =(c(x)-1)\Delta (1-\Delta)^{-N}
   \]
   This belongs to $\Lc_1$ for sufficiently large $N,$ thanks to some old results of Birman-Solomyak.
+\end{frame}
+
+\begin{frame}{Birman-Cwikel-Solomyak estimates}
+  If we want to understand scattering for differential operators (say, on $\Rl^d$), the analytical problem is to determine when
+  \[
+    f(x)(1-\Delta)^{-\frac{N}{2}} \in \Lc_1
+  \]
+  where $f(x)$ is a pointwise multiplier.
+
+  Results such as these are usually attributed to Birman and Solomyak. M.~Cwikel determined the corresponding results for $\Lc_p,$ with $p>2.$
 \end{frame}
 
 
@@ -415,6 +425,8 @@ Closely related is the Lax-Phillips scattering theory, with its well-known appli
   Recently some substantial advances have been made in the study of ellipticity on Heisenberg manifolds and more general foliated manifolds.
   \pause
   This opens up the possibility to study the scattering theory for maximally hypoelliptic operators.
+  \pause
+  Stratified Lie groups are a good setting for scattering theory, because the spectral theory of invariant differential operators can be fully described using representation theory.
 \end{frame}
 
 \begin{frame}{Some results}
@@ -505,12 +517,12 @@ $$\|M_f(1-\Delta)^{-\frac{r}{2}}\|_p\leq c_{p,q,r}\|f\|_{\ell_p(L_q)(G)}.$$
 \begin{frame}{Birman's theorem for stratified Lie groups}
   Suppose that
   \[
-      D_1 = \sum_{|\alpha|_h\leq m} a_{\alpha}(x)X^{\alpha}
+      D_1 = \sum_{\alpha} a_{\alpha}(x)X^{\alpha}
   \]
   where each $a_{\alpha}$ is a smooth function on $G$ equal to a constant (say, $c_{\alpha}$) outside a compact set.
   Then we expect that
   \[
-      D_0 = \sum_{|\alpha|_h\leq m} c_{\alpha}X^{\alpha}
+      D_0 = \sum_{\alpha} c_{\alpha}X^{\alpha}
   \]
   is a good model for $D_1$ asymptotically, since $D_1-D_0$ is a differential operator with compactly supported coefficients.
 
