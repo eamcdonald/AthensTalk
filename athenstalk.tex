@@ -251,9 +251,13 @@ Singular value estimates for operators like $M_fD^{-1}$ have several application
   Or $u(t) = \exp(itD_1)u(0).$ We want to know when
   there exists $u_+$ such that
   \[
+  u(t) \sim e^{itD_0}u_+,\quad t\to\infty
+  \]
+  or rather
+  \[
       \lim_{t\to\infty} \|\exp(itD_1)u(0)-\exp(itD_0)u_+\|_{L_2(X)} = 0.
   \]
-  Or, alternatively, when there exists a strong operator topology limit
+  Alternatively, we want to know when there exists a strong operator topology limit
   \[
     W_+(D_1,D_0) := \lim_{t\to\infty} e^{-itD_0}e^{itD_1}.
   \]
@@ -282,7 +286,7 @@ Singular value estimates for operators like $M_fD^{-1}$ have several application
   \]
   Splitting the initial value $u_0$ into the point and absolutely continuous parts, the solution looks like
   \[
-    u(t) = \sum_{\lambda} e^{it\lambda}E^{D_1}(\{\lambda\})u_0 + P_{ac}(D_1)u_0.
+    u(t) = \sum_{\lambda} e^{it\lambda}E^{D_1}(\{\lambda\})u_0 + e^{itD_1}P_{ac}(D_1)u_0.
   \]
   where the sum is over the eigenvalues of $D_1.$
   If the wave operator $W_{+}(D_0,D_1)$ exists, then $P_{ac}(D_1)u_0$ looks asymptotically like a function evolving under $D_0.$
@@ -409,13 +413,13 @@ Closely related is the Lax-Phillips scattering theory, with its well-known appli
 
 \begin{frame}{Ellipticity on stratified Lie groups}
   The stratification of $\gf$ defines a grading on the algebra of invariant differential operators, $\Uc(\gf),$ on $G.$
-  Say that an operator $P\in \Uc(\gf)$ has order $k$ if the highest degree term in $P$ is homogeneous of degree $k.$
+  Say that an operator $P\in \Uc(\gf)$ has order $k$ if the highest homogeneous degree term in $P$ is homogeneous of degree $k.$
 
   \begin{theorem}[Helffer-Nourigat, Rockland]
-    Let $P \in \Uc(\gf)$ have degree $k.$ If for every $\pi \in \widehat{G}_u$ (the unitary dual of $G$), $\pi(P)$
-    is injective on $H^{\infty}_\pi$ (the smooth vectors), then for every $Q$ of degree less than or equal to $k$ we have
+    Let $P \in \Uc(\gf)$ have degree $k.$ If for every $\pi \in \widehat{G}\setminus \{1\}$ (the unitary dual of $G$), $\pi(P)$
+    is injective on $H^{\infty}_\pi$ (the smooth vectors), then for every $A$ of degree less than or equal to $k$ we have
     \[
-      \|Qu\|_{L_2(G)} \lesssim \|Pu\|_{L_2(G)}+\|u\|_{L_2(G)},\quad u\in L_2(G).
+      \|Au\|_{L_2(G)} \lesssim \|Pu\|_{L_2(G)}+\|u\|_{L_2(G)},\quad u\in L_2(G).
     \]
     In particular, $P$ is hypoelliptic.
   \end{theorem}
@@ -536,7 +540,7 @@ Recall that if $D_1$ is a self-adjoint operator with no singular continuous spec
   \]
   has solution
   \[
-    u(t) = \sum_{\lambda} e^{it\lambda}E^{D_1}(\{\lambda\})u_0 + P_{ac}(D_1)u_0.
+    u(t) = \sum_{\lambda} e^{it\lambda}E^{D_1}(\{\lambda\})u_0 + e^{itD_1}P_{ac}(D_1)u_0.
   \]
   If we know that the wave operator $W_+(D_0,D_1)$ exists, then we have a good understanding of the absolutely continuous part, but what about the discrete part?
 \end{frame}
